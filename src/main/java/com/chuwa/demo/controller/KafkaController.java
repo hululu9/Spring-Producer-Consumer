@@ -13,8 +13,9 @@ public class KafkaController {
     private KafkaProducerService kafkaProducerService;
 
     @PostMapping("/publish")
-    public String publishMessage(@RequestParam("key") String key, @RequestParam("message") String message) {
+    public String publishMessage(@RequestParam("key") String key, @RequestParam("message") String message) throws InterruptedException {
         kafkaProducerService.sendMessage(key, message);
+        kafkaProducerService.sendMessagesRoundRobin(message);
         return "Message published successfully";
     }
 }

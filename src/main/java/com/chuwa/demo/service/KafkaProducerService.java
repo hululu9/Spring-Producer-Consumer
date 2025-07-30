@@ -18,4 +18,11 @@ public class KafkaProducerService {
         kafkaTemplate.send(topicName, key, message);
     }
 
+    public void sendMessagesRoundRobin(String message) throws InterruptedException {
+        for (int i = 0; i < 10; i++) {
+            kafkaTemplate.send(topicName, null, message + i); // No key → round-robin
+            Thread.sleep(1000); // set delay between each send
+        }
+    }
+
 }
