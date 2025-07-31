@@ -54,7 +54,7 @@ services:
         max-size: "1m"
 
   broker-1:
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka:7.2.2
     container_name: broker-1
     restart: unless-stopped
     ports:
@@ -85,7 +85,7 @@ services:
 
   broker-2:
 
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka:7.2.2
     container_name: broker-2
     restart: unless-stopped
     ports:
@@ -115,7 +115,7 @@ services:
         max-size: "1m"
 
   broker-3:
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka:7.2.2
     container_name: broker-3
     restart: unless-stopped
     ports:
